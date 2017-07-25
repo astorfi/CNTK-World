@@ -206,6 +206,12 @@ pip installation
 
 Please refer to this `link`_ for different associated URLs for varieties of architecture.
 
+For python 2.7 with GPU support, a simple installation can be as follows:
+
+* .. code:: shell
+
+    pip install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.0-cp35-cp35m-linux_x86_64.whl
+
 
 
 

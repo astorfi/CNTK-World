@@ -174,7 +174,7 @@ The installation process is as follows:
 
 * Unpack it in the created directory:
 
-  * .. code:: shell
+  .. code:: shell
 
       sudo tar -xzf CNTKCustomMKL-Linux-3.tgz -C /usr/local/CNTKCustomMKL
 
@@ -193,32 +193,32 @@ The procedure for Open MPI installation is as below:
 
 * Getting the source of installation:
 
-  * .. code:: shell
+  .. code:: shell
 
       wget https://www.open-mpi.org/software/ompi/v1.10/downloads/openmpi-1.10.3.tar.gz
 
 * Unpack it:
 
-  * .. code:: shell
+  .. code:: shell
 
      tar -xzvf ./openmpi-1.10.3.tar.gz cd openmpi-1.10.3
 
 * Configuration:
 
-  * .. code:: shell
+  .. code:: shell
 
       ./configure --prefix=/usr/local/mpi
 
 * Build & Install:
 
-  * .. code:: shell
+  .. code:: shell
 
      make -j all && sudo make install
 
 
 * Add the environment variable to ``.bashrc`` profile:
 
-  * .. code:: shell
+  .. code:: shell
 
      export PATH=/usr/local/mpi/bin:$PATH
       export LD_LIBRARY_PATH=/usr/local/mpi/lib:$LD_LIBRARY_PATH
@@ -233,21 +233,21 @@ In CNTK Protocol Buffers is used for serialization. It should be installed by th
 
 * Installing the required packages:
 
-  * .. code:: shell
+  .. code:: shell
 
      sudo apt-get install autoconf automake libtool curl make g++ unzip
 
 
 * Get the Protobuf from the source:
 
-  * .. code:: shell
+  .. code:: shell
 
       wget https://github.com/google/protobuf/archive/v3.1.0.tar.gz && tar -xzf v3.1.0.tar.gz
 
 
 * Compiling Protobuf && Installation:
 
-  * .. code:: shell
+  .. code:: shell
 
       cd protobuf-3.1.0 && ./autogen.sh && ./configure CFLAGS=-fPIC CXXFLAGS=-fPIC --disable-shared --prefix=/usr/local/protobuf-3.1.0 && make -j $(nproc) && sudo make install
 
@@ -277,7 +277,7 @@ to install ``LIBZIP`` from the source. The procedure is as follows:
 
 * Get and unpack the source file:
 
-  * .. code:: shell
+  .. code:: shell
 
         wget http://nih.at/libzip/libzip-1.1.2.tar.gz && tar -xzvf ./libzip-1.1.2.tar.gz
 
@@ -285,7 +285,7 @@ to install ``LIBZIP`` from the source. The procedure is as follows:
 
 * Configuration & Installation:
 
-  * .. code:: shell
+  .. code:: shell
 
       cd libzip-1.1.2 && ./configure && make -j all && sudo make install
 
@@ -305,21 +305,21 @@ Boost Library is an important prerequisite for CNTK setup. The installation proc
 
 * Installing dependencies:
 
-  * .. code:: shell
+  .. code:: shell
 
       sudo apt-get install libbz2-dev && sudo apt-get install python-dev
 
 
 * Getting the source files:
 
-  * .. code:: shell
+  .. code:: shell
 
       wget -q -O - https://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.gz/download | tar -xzf -
 
 
 * Installation:
 
-  * .. code:: shell
+  .. code:: shell
 
       cd boost_1_60_0 && ./bootstrap.sh --prefix=/usr/local/boost-1.60.0 && sudo ./b2 -d0 -j"$(nproc)" install
 
@@ -337,14 +337,14 @@ Please follow build instructions as follows:
 
 * Clone the NCCL repository:
 
-  * .. code:: shell
+  .. code:: shell
 
       git clone https://github.com/NVIDIA/nccl.git $$ cd nccl
 
 
 * Build $$ Test:
 
-  * .. code:: shell
+  .. code:: shell
 
       make CUDA_HOME=<cuda install path> test
 
@@ -353,13 +353,13 @@ In which ``<cuda install path>`` is usually ``/usr/local/cuda``.
 
 * Add to path:
 
-  * .. code:: shell
+  .. code:: shell
 
       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./build/lib
 
 * Build tests:
 
-  * .. code:: shell
+  .. code:: shell
 
       ./build/test/single/all_reduce_test
 
@@ -409,19 +409,19 @@ The step-by-step procedure is as fllows:
 * Make sure Anaconda, Miniconda or any other environment (which contains conda environment) is installed.
 * Create the conda environment as follows (for a Python X-based version in which X can be ``27``, ``34``, ``35``, ``36`` equivalent to ``2.7``, ``3.4``, ``3.5``, ``3.6``):
 
-  * .. code:: shell
+  .. code:: shell
 
       conda env create --file [CNTK clone root]/Scripts/install/linux/conda-linux-cntk-pyX-environment.yml
 
 * Now, since we have the environment, the packages can be updated to latest versions as below:
 
-  * .. code:: shell
+  .. code:: shell
 
       conda env update --file [CNTK clone root]/Scripts/install/linux/conda-linux-cntk-pyX-environment.yml --name cntk-pyX
 
 * Now, the conda environment can be activated as below:
 
-  * .. code:: shell
+  .. code:: shell
 
       source activate cntk-pyX
 
@@ -444,7 +444,7 @@ The installation process is as follows:
 
 * Clone the ``Multiverso`` code under the root folder of CNTK:
 
-  * .. code:: shell
+  .. code:: shell
 
       git submodule update --init Source/Multiverso
 
@@ -465,21 +465,21 @@ Now, the ``.whl`` file has been created. Installation of ``CNTK`` is as follows:
 
 * cd to the folder that ``.whl`` file is located.
 
-  * .. code:: shell
+  .. code:: shell
 
       cd [CNTK clone root]/python
 
 
 * Activate virtual environment.
 
-  * .. code:: shell
+  .. code:: shell
 
       source activate cntk-py35
 
 
 * Install the created package using ``pip``.
 
-  * .. code:: shell
+  .. code:: shell
 
       pip install file_name.whl
 

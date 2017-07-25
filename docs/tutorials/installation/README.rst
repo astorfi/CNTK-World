@@ -56,8 +56,6 @@ For installation of the required dependencies, the following command must be exe
 
     sudo apt-get install python-numpy python-dev python-pip python-wheel python-virtualenv
 
-The second line is for ``python3`` installation.
-
 ~~~~~~~~~~~~~~~~~~~~~~~~
 GPU Prerequisites Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,6 +83,12 @@ Now by using the ``virtualenv`` command, the virtual environment can be created:
 .. code:: bash
 
     sudo virtualenv --system-site-packages ~/virtualenvs/CNTK
+
+or the following for python3:
+
+.. code:: bash
+
+    sudo virtualenv --p python3 ~/virtualenvs/CNTK
 
 **Environment Activation**
 

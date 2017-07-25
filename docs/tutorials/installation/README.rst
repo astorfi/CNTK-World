@@ -189,18 +189,11 @@ The procedure for Open MPI installation is as below:
 CNTK setup for Python
 -----------------------
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Download the required binary package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. _link: https://github.com/Microsoft/CNTK/releases
-
-Please refer to this `link`_ for downloading desired binary packages.
 
 
-~~~~~~~~~~~~~~~~~~~
-pip installation
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+Simple pip installation
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _link: https://docs.microsoft.com/en-us/cognitive-toolkit/setup-linux-python
 
@@ -213,11 +206,40 @@ For python 2.7 with GPU support, a simple installation can be as follows:
     pip install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.0-cp35-cp35m-linux_x86_64.whl
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation from the source file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instead of using the URLs, CNTK can be installed from the provided source files.
+
+'''''''''''''''''''''''''''''''''''''
+Download the required binary package
+'''''''''''''''''''''''''''''''''''''
+
+.. _link: https://github.com/Microsoft/CNTK/releases
+
+Please refer to this `link`_ for downloading desired binary packages.
+
+'''''''''''''''''''''''''''''''''''''
+Install using the bash-script file
+'''''''''''''''''''''''''''''''''''''
+
+After downloding the source files, cd to the related directory as below:
 
 
+* .. code:: shell
+
+    cd cntk/Scripts/install/linux
 
 
+And run the associated file for installation:
 
+* .. code:: shell
+
+    ./install-cntk.sh
+
+**WARNING**:
+           * Check the ``install-cntk.sh`` file for realizing the installation type. It might be Python or Anaconda installation with any of the python versions.
 
 
 
@@ -225,11 +247,10 @@ For python 2.7 with GPU support, a simple installation can be as follows:
 Using Virtual Environments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-At first, the environment must be activation. Since we already defined the environment alias as ``tensorflow``, by the terminal execution of the simple command of ``tensorflow``, the environment will be activated. Then like the previous part, we execute the following:
-
-.. code:: bash
-
-    pip install ~/tensorflow_package/file_name.whl
+If installation CNTK in virtual environment is desired, at first, the virtual environment must be activation.
+Since we already defined the environment alias as ``CNTK``,
+by the terminal execution of the simple command of ``CNTK``,
+the environment will be activated.
 
 **WARNING**:
            * By using the virtual environment installation method, the sudo command should not be used anymore because if we use sudo, it points to native system packages and not the one available in the virtual environment.
@@ -249,15 +270,6 @@ In the terminal, the following script must be run (``in the home directory``) co
     >> sess = tf.Session()
     >> print(sess.run(hello))
 
---------------------------
-Common Errors
---------------------------
-
-Different errors reported blocking the compiling and running TensorFlow.
-
-   * ``Mismatch between the supported kernel versions:`` This error mentioned earlier in this documentation. The naive solution reported being the reinstallation of the CUDA driver.
-   * ``ImportError: cannot import name pywrap_tensorflow:`` This error usually occurs when the Python loads the tensorflow libraries from the wrong directory, i.e., not the version installed by the user in the root. The first step is to make sure we are in the system root such that the python libraries are utilized correctly. So basically we can open a new terminal and test TensorFlow installation again.
-   * ``ImportError: No module named packaging.version":`` Most likely it might be related to the ``pip`` installation. Reinstalling that using ``python -m pip install -U pip`` or ``sudo python -m pip install -U pip`` may fix it!
 
 --------------------------
 Summary

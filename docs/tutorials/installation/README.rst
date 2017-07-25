@@ -22,7 +22,7 @@ The assumption is that installing ``CNTK 2.0`` in the ``Ubuntu`` using ``GPU sup
 .. .. _youtube: https://www.youtube.com/watch?v=_3JFEPk4qQY&t=2s
 
 .. _C++ Compiler: https://docs.microsoft.com/en-us/cognitive-toolkit/setup-cntk-on-linux#c-compiler
-.. _Open MPI: https://docs.microsoft.com/en-us/cognitive-toolkit/setup-cntk-on-linux#open-mpi
+.. _Open MPI Installation: https://docs.microsoft.com/en-us/cognitive-toolkit/setup-cntk-on-linux#open-mpi
 
 ------------------------
 Prepare the environment
@@ -34,7 +34,7 @@ The following should be done in order:
     * CNTK Python dependencies installation
     * GPU prerequisites setup
     * `C++ Compiler`_
-    * `Open MPI`_
+    * `Open MPI Installation`_
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,7 +163,7 @@ The installation process is as follows:
 
 * Create a directory to hold CNTK custom MKL:
 
-  * .. code:: shell
+  .. code:: shell
 
       sudo mkdir /usr/local/CNTKCustomMKL
 

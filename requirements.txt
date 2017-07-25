@@ -1,9 +1,0 @@
-numpy
-scipy
-python-coveralls
-keras
-matplotlib
-xlrd
-scikit-learn
-pandas
-scikit-image

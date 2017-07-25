@@ -147,6 +147,40 @@ The C++ compiler might be naively installed. In the Ubuntu, you can check it as 
 
 Please refer to the `C++ Compiler`_ documentation.
 
+
+~~~
+MKL
+~~~
+
+Intel Math Kernel Library (Intel MKL) is the default CNTK math library is the.
+
+**As Microsoft says**: *"You can NOT directly build CNTK using a regular
+installed Intel MKL SDK, the build is configured to work with a custom
+generated CNTK custom MKL library (This way you don't need to go through
+the process of installing the complete Intel MKL SDK).*
+
+The installation process is as follows:
+
+* Create a directory to hold CNTK custom MKL:
+
+  * .. code:: shell
+
+      sudo mkdir /usr/local/CNTKCustomMKL
+
+.. _Cognitive Toolkit Custom MKL Package: https://www.microsoft.com/en-us/cognitive-toolkit/download-math-kernel-library/
+
+* Download the required CNTK custom MKL from `Cognitive Toolkit Custom MKL Package`_ page.
+
+
+* Unpack it in the created directory:
+
+  * .. code:: shell
+
+      sudo tar -xzf CNTKCustomMKL-Linux-3.tgz -C /usr/local/CNTKCustomMKL
+
+For configuration of ``CNTK``, ``--with-mkl=<directory>`` option must be used. In
+our case, ``--with-mkl=/usr/local/CNTKCustomMKL`` is the correct flag.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 Open MPI Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -189,61 +223,225 @@ The procedure for Open MPI installation is as below:
      export PATH=/usr/local/mpi/bin:$PATH export LD_LIBRARY_PATH=/usr/local/mpi/lib:$LD_LIBRARY_PATH
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Protobuf Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In CNTK Protocol Buffers is used for serialization. It should be installed by the following procedure:
+
+
+* Installing the required packages:
+
+  * .. code:: shell
+
+     sudo apt-get install autoconf automake libtool curl make g++ unzip
+
+
+* Get the Protobuf from the source:
+
+  * .. code:: shell
+
+      wget https://github.com/google/protobuf/archive/v3.1.0.tar.gz && tar -xzf v3.1.0.tar.gz
+
+
+* Compiling Protobuf && Installation:
+
+  * .. code:: shell
+
+      cd protobuf-3.1.0 && ./autogen.sh && ./configure CFLAGS=-fPIC CXXFLAGS=-fPIC --disable-shared --prefix=/usr/local/protobuf-3.1.0 && make -j $(nproc) && sudo make install
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Zlib Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _zlib: http://zlib.net/
+
+You can get the latest version from `zlib`_ offical website. Alternatively, it can be installed in Ubuntu using the following command:
+
+
+.. code:: shell
+
+    sudo apt-get install zlib1g-dev
+
+~~~~~~~
+LIBZIP
+~~~~~~~
+
+.. _LIBZIP: http://zlib.net/
+
+`LIBZIP`_ is a C library for reading, creating, and modifying zip archives. It is recommended
+to install ``LIBZIP`` from the source. The procedure is as follows:
+
+
+* Get and unpack the source file:
+
+  * .. code:: shell
+
+        wget http://nih.at/libzip/libzip-1.1.2.tar.gz && tar -xzvf ./libzip-1.1.2.tar.gz
+
+
+
+* Configuration & Installation:
+
+  * .. code:: shell
+
+      cd libzip-1.1.2 && ./configure && make -j all && sudo make install
+
+Now the environment variable must be added to ``.bashrc`` profile:
+
+.. code:: shell
+
+    export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Boost Library Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Boost Library is an important prerequisite for CNTK setup. The installation process is as follows:
+
+
+* Installing dependencies:
+
+  * .. code:: shell
+
+      sudo apt-get install libbz2-dev && sudo apt-get install python-dev
+
+
+* Getting the source files:
+
+  * .. code:: shell
+
+      wget -q -O - https://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.gz/download | tar -xzf -
+
+
+* Installation:
+
+  * .. code:: shell
+
+      cd boost_1_60_0 && ./bootstrap.sh --prefix=/usr/local/boost-1.60.0 && sudo ./b2 -d0 -j"$(nproc)" install
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NCCL Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _NCCL library : https://github.com/NVIDIA/nccl
+
+NVIDIA's `NCCL library`_ can be installed for optimized multi-GPU
+communication on Linux which CNTK can take advantage from it.
+
+Please follow build instructions as follows:
+
+* Clone the NCCL repository:
+
+  * .. code:: shell
+
+      git clone https://github.com/NVIDIA/nccl.git $$ cd nccl
+
+
+* Build $$ Test:
+
+  * .. code:: shell
+
+      make CUDA_HOME=<cuda install path> test
+
+In which ``<cuda install path>`` is usually ``/usr/local/cuda``.
+
+
+* Add to path:
+
+  * .. code:: shell
+
+      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./build/lib
+
+* Build tests:
+
+  * .. code:: shell
+
+      ./build/test/single/all_reduce_test
+
+
+You may get the error of ``Error: must specify at least data size in bytes!``. Then
+run the following:
+
+.. code:: shell
+
+      ./build/test/single/all_reduce_test 10000000
+
+
+**WARNING**: In configuration of CNTK, ``--with-nccl=<path>`` option must be used
+to enable ``NVIDIA NCCL``. In our example ``$HOME/nccl/build`` in the ``path argument``.
+
+
+~~~~~~~~~~~~~~~~~~
+SWIG Installation
+~~~~~~~~~~~~~~~~~~
+
+SWIG is required if Python is desired to be the interface for CNTK. The process is as follows:
+
+.. code:: shell
+
+      sudo [CNTK clone root]/Tools/devInstall/Linux/install-swig.sh
+
+This is expected to install SWIG in ``/usr/local/swig-3.0.10``.
+
+**WARNING**: It is very important to use ``sudo`` for SWIG installation.
+
+
 -----------------------
 CNTK setup for Python
 -----------------------
 
+---------------------------------
+build CNTK v2 with Python support
+---------------------------------
+
+~~~~~~~~~~~~~~~~~
+Build Python APIs
+~~~~~~~~~~~~~~~~~
+
+The step-by-step procedure is as fllows:
+
+* Make sure ``SWIG`` is installed.
+* Make sure Anaconda, Miniconda or any other environment (which contains conda environment) is installed.
+* Create the conda environment as follows (for a Python X-based version in which X can be ``2.7``, ``3.4``, ``3.5``, ``3.6``):
+
+  * .. code:: shell
+
+      conda env create --file [CNTK clone root]/Scripts/install/linux/conda-linux-cntk-pyX-environment.yml
+
+* Now, since we have the environment, the packages can be updated to latest versions as below:
+
+  * .. code:: shell
+
+      conda env update --file [CNTK clone root]/Scripts/install/linux/conda-linux-cntk-pyX-environment.yml --name cntk-pyX
+
+* Now, the conda environment can be activated as below:
+
+  * .. code:: shell
+
+      source activate cntk-pyX
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~
-Simple pip installation
+Building Python Package
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _link: https://docs.microsoft.com/en-us/cognitive-toolkit/setup-linux-python
+Configuration is as follows as the user is the directory of ``CNTK clone root``.
 
-Please refer to this `link`_ for different associated URLs for varieties of architecture.
+.. code:: shell
 
-For python 2.7 with GPU support, a simple installation can be as follows:
-
-* .. code:: shell
-
-    pip install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.0-cp35-cp35m-linux_x86_64.whl
+    ./configure --with-swig=/usr/local/swig-3.0.10 --with-py35-path=$HOME/anaconda/envs/cntk-py35 --with-nccl=$HOME/nccl/build
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Installation from the source file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Instead of using the URLs, CNTK can be installed from the provided source files.
-
-'''''''''''''''''''''''''''''''''''''
-Download the required binary package
-'''''''''''''''''''''''''''''''''''''
-
-.. _link: https://github.com/Microsoft/CNTK/releases
-
-Please refer to this `link`_ for downloading desired binary packages.
-
-'''''''''''''''''''''''''''''''''''''
-Install using the bash-script file
-'''''''''''''''''''''''''''''''''''''
-
-After downloding the source files, cd to the related directory as below:
 
 
-* .. code:: shell
-
-    cd cntk/Scripts/install/linux
 
 
-And run the associated file for installation:
 
-* .. code:: shell
 
-    ./install-cntk.sh
-
-**WARNING**:
-           * Check the ``install-cntk.sh`` file for realizing the installation type. It might be Python or Anaconda installation with any of the python versions.
 
 
 
@@ -259,20 +457,6 @@ the environment will be activated.
 **WARNING**:
            * By using the virtual environment installation method, the sudo command should not be used anymore because if we use sudo, it points to native system packages and not the one available in the virtual environment.
            * Since ``sudo mkdir ~/virtualenvs`` is used for creating of the virtual environment, using the ``pip install`` returns ``permission error``. In this case, the root privilege of the environment directory must be changed using the ``sudo chmod -R 777 ~/virtualenvs`` command.
-
---------------------------
-Validate the Installation
---------------------------
-
-In the terminal, the following script must be run (``in the home directory``) correctly without any error and preferably any warning:
-
-.. code:: bash
-
-    python
-    >> import tensorflow as tf
-    >> hello = tf.constant('Hello, TensorFlow!')
-    >> sess = tf.Session()
-    >> print(sess.run(hello))
 
 
 --------------------------

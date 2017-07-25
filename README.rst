@@ -59,20 +59,21 @@ The tutorials in this repository are partitioned into relevant categories.
 CNTK Installation and Setup the Environment
 =============================================
 
-.. .. _TensorFlow Installation: https://github.com/astorfi/TensorFlow-World/tree/master/docs/tutorials/installation
+.. _CNTK Installation: docs/tutorials/installation
 
-.. In order to install TensorFlow please refer to the following link:
+In order to install CNTK please refer to the following link:
 
-  * `TensorFlow Installation`_
+  * `CNTK Installation`_
 
 
 .. .. image:: _img/mainpage/installation.gif
     :target: https://www.youtube.com/watch?v=_3JFEPk4qQY&t=2s
 
 
-.. The virtual environment installation is recommended in order to prevent package conflict and having the capacity to customize the working environment. The TensorFlow version employed for these tutorials is `1.1`. However, the files from previous versions can be transformed to newer versions (ex: version `1.1`) using the instructions available in the following link:
-
-  * `Transitioning to TensorFlow 1.0 <https://www.tensorflow.org/install/migration/>`_
+The virtual environment installation is recommended in order to prevent package
+conflict and having the capacity to customize the working environment. Among different
+methods of creating and utilizing virtual environments, working with ``conda`` is
+recommended.
 
 =====================
 Some Useful Tutorials

@@ -1,1 +1,0 @@
-# CNTK-World

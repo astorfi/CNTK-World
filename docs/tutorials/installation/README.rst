@@ -220,7 +220,8 @@ The procedure for Open MPI installation is as below:
 
   * .. code:: shell
 
-     export PATH=/usr/local/mpi/bin:$PATH export LD_LIBRARY_PATH=/usr/local/mpi/lib:$LD_LIBRARY_PATH
+     export PATH=/usr/local/mpi/bin:$PATH
+      export LD_LIBRARY_PATH=/usr/local/mpi/lib:$LD_LIBRARY_PATH
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -395,7 +396,7 @@ CNTK setup for Python
 -----------------------
 
 ---------------------------------
-build CNTK v2 with Python support
+build CNTK with Python support
 ---------------------------------
 
 ~~~~~~~~~~~~~~~~~
@@ -406,7 +407,7 @@ The step-by-step procedure is as fllows:
 
 * Make sure ``SWIG`` is installed.
 * Make sure Anaconda, Miniconda or any other environment (which contains conda environment) is installed.
-* Create the conda environment as follows (for a Python X-based version in which X can be ``2.7``, ``3.4``, ``3.5``, ``3.6``):
+* Create the conda environment as follows (for a Python X-based version in which X can be ``27``, ``34``, ``35``, ``36`` equivalent to ``2.7``, ``3.4``, ``3.5``, ``3.6``):
 
   * .. code:: shell
 
@@ -424,6 +425,30 @@ The step-by-step procedure is as fllows:
 
       source activate cntk-pyX
 
+**NOTE**: Remember to set ``X`` according to the desired version and existing files.
+
+~~~~~~~~~~~~~~~~~~~~~~~
+Before Configuration
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _Multiverso: https://github.com/microsoft/multiverso
+
+Parameter server is a framework which is of great importance in distributed machine learning.
+Asynchronous parallel training with many workers is one of the key advantages. before
+configuration of ``CNTK`` we are determined to build CNTK with `Multiverso`_ supported.
+Multiverso is a parameter server framework developed by Microsoft Research Asia team. It enables the Asynchronous SGD.
+
+The installation process is as follows:
+
+* cd the root folder of CNTK.
+
+* Clone the ``Multiverso`` code under the root folder of CNTK:
+
+  * .. code:: shell
+
+      git submodule update --init Source/Multiverso
+
+* In ``CNTK`` configuration, use the ``--asgd=yes`` flag (Linux).
 
 ~~~~~~~~~~~~~~~~~~~~~~~
 Building Python Package
@@ -433,34 +458,53 @@ Configuration is as follows as the user is the directory of ``CNTK clone root``.
 
 .. code:: shell
 
-    ./configure --with-swig=/usr/local/swig-3.0.10 --with-py35-path=$HOME/anaconda/envs/cntk-py35 --with-nccl=$HOME/nccl/build
+    ./configure  --with-swig=/usr/local/swig-3.0.10 --with-py35-path=$HOME/anaconda/envs/cntk-py35 --with-nccl=$HOME/GITHUB/nccl/build --with-mkl=/usr/local/CNTKCustomMKL --asgd=yes
 
 
+Now, the ``.whl`` file has been created. Installation of ``CNTK`` is as follows:
+
+* cd to the folder that ``.whl`` file is located.
+
+  * .. code:: shell
+
+      cd [CNTK clone root]/python
 
 
+* Activate virtual environment.
+
+  * .. code:: shell
+
+      source activate cntk-py35
 
 
+* Install the created package using ``pip``.
 
+  * .. code:: shell
 
+      pip install file_name.whl
 
+--------------------------
+Validate the Installation
+--------------------------
 
+In the terminal, the following script must be run (``in the home directory``) correctly without any error and preferably any warning:
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Using Virtual Environments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code:: bash
 
-If installation CNTK in virtual environment is desired, at first, the virtual environment must be activation.
-Since we already defined the environment alias as ``CNTK``,
-by the terminal execution of the simple command of ``CNTK``,
-the environment will be activated.
+    python
 
-**WARNING**:
-           * By using the virtual environment installation method, the sudo command should not be used anymore because if we use sudo, it points to native system packages and not the one available in the virtual environment.
-           * Since ``sudo mkdir ~/virtualenvs`` is used for creating of the virtual environment, using the ``pip install`` returns ``permission error``. In this case, the root privilege of the environment directory must be changed using the ``sudo chmod -R 777 ~/virtualenvs`` command.
+    >> import cntk
 
 
 --------------------------
 Summary
 --------------------------
 
-In this tutorial, we described how to install TensorFlow from the source which has the advantage of more compatibility with the system configuration. Python virtual environment installation has been investigated as well to separate the TensorFlow environment from other environments. Conda environments can be used as well as Python virtual environments which will be explained in a separated post. In any case, the TensorFlow installed from the source can be run much faster than the pre-build binary packages provided by the TensorFlow although it adds the complexity to installation process.
+In this tutorial, we described how to install CNTK from the source which has the
+advantage of more compatibility with the system configuration. Python virtual
+environment installation has been investigated as well to separate the CNTK
+environment from other environments. Conda environments can be used as well as
+Python virtual environments which will be explained in a separated post.
+In any case, the CNTK installed from the source can be run much faster
+than the pre-build binary packages provided by the Microsoft CNTK
+ although it adds the complexity to installation process.

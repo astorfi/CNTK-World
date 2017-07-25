@@ -72,7 +72,7 @@ The following requirements must be satisfied:
 Creating a Virtual Environment (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Assume the installation of TensorFlow in a ``python virtual environment`` is desired. First, we need to create a directory to contain all the environments. It can be done by executing the following in the terminal:
+Assume the installation of CNTK in a ``python virtual environment`` is desired. First, we need to create a directory to contain all the environments. It can be done by executing the following in the terminal:
 
 .. code:: bash
 
@@ -109,7 +109,7 @@ The solution is to use an alias to make life easy! Let's execute the following c
     echo 'alias CNTK="source $HOME/virtualenvs/CNTK/bin/activate" ' >> ~/.bash_aliases
     bash
 
-After running the previous command, please close and open terminal again. Now by running the following simple script, the tensorflow environment will be activated.
+After running the previous command, please close and open terminal again. Now by running the following simple script, the CNTK environment will be activated.
 
 .. code:: shell
 

@@ -187,7 +187,7 @@ Open MPI Installation
 
 .. _Open MPI: https://www.open-mpi.org/
 
-`Open MPI`_ is a **High Performance Message Passing Library**. It is an important part of manual installation of CNTK for having a better performance and make the most of it.
+`Open MPI`_ is a **High Performance Message Passing Library**. It is an important part of the manual installation of CNTK for having a better performance and make the most of it.
 
 The procedure for Open MPI installation is as below:
 
@@ -403,7 +403,7 @@ build CNTK with Python support
 Build Python APIs
 ~~~~~~~~~~~~~~~~~
 
-The step-by-step procedure is as fllows:
+The step-by-step procedure is as follows:
 
 * Make sure ``SWIG`` is installed.
 * Make sure Anaconda, Miniconda or any other environment (which contains conda environment) is installed.
@@ -507,4 +507,4 @@ environment from other environments. Conda environments can be used as well as
 Python virtual environments which will be explained in a separated post.
 In any case, the CNTK installed from the source can be run much faster
 than the pre-build binary packages provided by the Microsoft CNTK
- although it adds the complexity to installation process.
+ although it adds the complexity to the installation process.

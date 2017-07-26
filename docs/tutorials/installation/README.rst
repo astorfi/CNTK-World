@@ -506,5 +506,4 @@ environment installation has been investigated as well to separate the CNTK
 environment from other environments. Conda environments can be used as well as
 Python virtual environments which will be explained in a separated post.
 In any case, the CNTK installed from the source can be run much faster
-than the pre-build binary packages provided by the Microsoft CNTK
- although it adds the complexity to the installation process.
+than the pre-build binary packages provided by the Microsoft CNTK although it adds the complexity to the installation process.

@@ -40,11 +40,9 @@ The tutorials in this repository are partitioned into relevant categories.
 PART 1 - BASICS
 ~~~~~~~~~~~~~~~
 
-+----+-----------------------------------+-----------------------------------------------------------------------------------------------+----------------------------------------------+
-| #  |       topic                       |   Source Code                                                                                 |                                              |
-+====+===================================+===============================================================================================+==============================================+
-| 1  | *Start-up*                        | `Welcome <welcomesourcecode_>`_  / `IPython <ipythonwelcome_>`_                               |  `Documentation <Documentationcnnwelcome_>`_ |
-+----+-----------------------------------+-----------------------------------------------------------------------------------------------+----------------------------------------------+
++====+===================================+===============================================================================================+
+| 1  | *Start-up*                        | `Python <welcomesourcecode_>`_  / `IPython <ipythonwelcome_>`_                                |
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 
 .. ~~~~~~~~~~~~
 .. **Welcome**
@@ -52,9 +50,8 @@ PART 1 - BASICS
 
 .. The tutorial in this section is just a simple entrance to TensorFlow world.
 
-.. _welcomesourcecode: https://github.com/astorfi/TensorFlow-World/tree/master/codes/0-welcome
-.. _Documentationcnnwelcome: https://github.com/astorfi/TensorFlow-World/blob/master/docs/tutorials/0-welcome
-.. _ipythonwelcome: https://github.com/astorfi/TensorFlow-World/blob/master/codes/0-welcome/code/0-welcome.ipynb
+.. _welcomesourcecode: /codes/p01-basics/0-welcome/welcome.py
+.. _ipythonwelcome: codes/p01-basics/0-welcome/welcome.ipynb
 
 
 

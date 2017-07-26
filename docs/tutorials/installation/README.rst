@@ -68,6 +68,54 @@ The following requirements must be satisfied:
 
 **The main goal is to make sure the latest NVIDIA driver is installed.**
 
+'''''''''''''''''
+CUDA Installation
+'''''''''''''''''
+
+.. _CUDA official online documentation: http://docs.nvidia.com/cuda/pdf/CUDA_Installation_Guide_Linux.pdf
+.. _NVIDIA CUDA Download: https://developer.nvidia.com/cuda-downloads
+
+You can refer to the `NVIDIA CUDA Download`_ page. Installation instructions in available at `CUDA official online documentation`_.
+
+'''''''''''''''''
+CUDNN
+'''''''''''''''''
+
+CUDNN can be downloaded and installed as follows:
+
+.. code:: shell
+
+
+    wget http://developer.download.nvidia.com/compute/redist/cudnn/v5.1/cudnn-8.0-linux-x64-v5.1.tgz
+     tar -xzvf ./cudnn-8.0-linux-x64-v5.1.tgz
+     sudo mkdir /usr/local/cudnn-5.1
+     sudo cp -r cuda /usr/local/cudnn-5.1
+
+.. _NVIDIA CUDA Deep Neural Network library (cuDNN): https://developer.nvidia.com/cudnn
+
+Alternatively, you can refer to `NVIDIA CUDA Deep Neural Network library (cuDNN)`_ official documentation.
+
+Finally, the environment must be added to the ``.bashrc`` profile by adding the following line:
+
+.. code:: bash
+
+      export LD_LIBRARY_PATH=/usr/local/cudnn-5.1/cuda/lib64:$LD_LIBRARY_PATH
+
+
+'''''''''''''''''
+CUB
+'''''''''''''''''
+
+NVIDIA CUB must be installed too as one of the dependencies.
+
+
+.. code:: shell
+
+    wget https://github.com/NVlabs/cub/archive/1.4.1.zip
+     unzip ./1.4.1.zip
+     sudo cp -r cub-1.4.1 /usr/local
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Creating a Virtual Environment (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -218,7 +266,7 @@ The procedure for Open MPI installation is as below:
 
 * Add the environment variable to ``.bashrc`` profile:
 
-  .. code:: shell
+  .. code:: bash
 
      export PATH=/usr/local/mpi/bin:$PATH
       export LD_LIBRARY_PATH=/usr/local/mpi/lib:$LD_LIBRARY_PATH
@@ -291,7 +339,7 @@ to install ``LIBZIP`` from the source. The procedure is as follows:
 
 Now the environment variable must be added to ``.bashrc`` profile:
 
-.. code:: shell
+.. code:: bash
 
     export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
@@ -353,7 +401,7 @@ In which ``<cuda install path>`` is usually ``/usr/local/cuda``.
 
 * Add to path:
 
-  .. code:: shell
+  .. code:: bash
 
       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./build/lib
 

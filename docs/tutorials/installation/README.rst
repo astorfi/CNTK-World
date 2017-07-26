@@ -458,7 +458,7 @@ Configuration is as follows as the user is the directory of ``CNTK clone root``.
 
 .. code:: shell
 
-    ./configure  --with-swig=/usr/local/swig-3.0.10 --with-py35-path=$HOME/anaconda/envs/cntk-py35 --with-nccl=$HOME/GITHUB/nccl/build --with-mkl=/usr/local/CNTKCustomMKL --asgd=yes
+    ./configure  --with-swig=/usr/local/swig-3.0.10 --with-py35-path=$HOME/anaconda/envs/cntk-py35 --with-nccl=$HOME/GITHUB/nccl/build --with-mkl=/usr/local/CNTKCustomMKL --asgd=yes --cuda=yes --with-cuda=/usr/local/cuda
 
 
 Now, the ``.whl`` file has been created. Installation of ``CNTK`` is as follows:

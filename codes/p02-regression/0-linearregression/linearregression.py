@@ -11,7 +11,7 @@ from cntk.layers import default_options, Dense
 #################
 
 # data parameters
-Num_samples = 500
+num_samples = 500
 
 # Network parameters
 input_dim = 1
@@ -31,7 +31,7 @@ num_iterations = 400
 ###################################
 
 # random data
-features = np.linspace(-1, 1, Num_samples)
+features = np.linspace(-1, 1, num_samples)
 predictions = 2 * features + np.random.randn(*features.shape) * 0.5
 
 # Plotting the scatter plot
@@ -86,41 +86,39 @@ for step in range(0, num_iterations):
 ###### Model Evaluation ######
 ##############################
 
-test_features = features[400:500, :]
-test_labels = predictions[400:500, :]
+# Test data
+test_features = features[num_samples_to_train:num_samples, :]
+test_labels = predictions[num_samples_to_train:num_samples, :]
 
-train_features = features[0:400, :]
-train_labels = predictions[0:400, :]
-
-test_eval_result = train_op.test_minibatch({input: test_features, label: test_labels})
-print("Test Data Evaluation Error: {0:.2f}".format(test_eval_result))
+# Train data
+train_features = features[0:num_samples_to_train, :]
+train_labels = predictions[0:num_samples_to_train, :]
 
 # Print out our weight and bias
-print("Our model trained parameters of: ", pred.W.value, pred.b.value)
-
-# And test some random data well outside our training data set
-out_of_sample_data = np.array(test_features, dtype=np.float32)
-result = pred.eval({input: out_of_sample_data})
-print("Out of sample test data: ", out_of_sample_data)
-print("Returned values: ", result[:, 0])
-
-# plt.scatter(test_labels[:, 0], result[:, 0], c='r')
-plt.scatter(test_features[:,0], test_labels[:,0], c='b')
-X = test_features[:,0]
-print(pred.W.value[0].shape)
-Y = pred.W.value[0] * test_features[:,0] + pred.b.value[0]
-plt.plot(X, Y, 'r')
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.show()
+print("Trained parameters are: w= {0:.2f}, b={1:.2f}".format(pred.W.value[0][0], pred.b.value[0]))
 
 
-# plt.scatter(test_labels[:, 0], result[:, 0], c='r')
+##################
+###### Plot ######
+##################
+
+# Evaluation of training set
 plt.scatter(train_features[:,0], train_labels[:,0], c='b')
 X = train_features[:,0]
-print(pred.W.value[0].shape)
 Y = pred.W.value[0] * train_features[:,0] + pred.b.value[0]
 plt.plot(X, Y, 'r')
-plt.xlabel("X")
-plt.ylabel("Y")
+plt.xlabel("Feature")
+plt.ylabel("Predicted")
 plt.show()
+
+# Evaluation on test set
+plt.scatter(test_features[:,0], test_labels[:,0], c='b')
+X = test_features[:,0]
+Y = pred.W.value[0] * test_features[:,0] + pred.b.value[0]
+plt.plot(X, Y, 'r')
+plt.xlabel("Feature")
+plt.ylabel("Predicted")
+plt.show()
+
+
+

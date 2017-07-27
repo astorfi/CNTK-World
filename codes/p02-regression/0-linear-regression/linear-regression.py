@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import cntk
 from cntk import Trainer, learning_rate_schedule, UnitType
 from cntk.learners import sgd
-from cntk.ops import *
 from cntk.layers import default_options, Dense
 import argparse
 

@@ -41,8 +41,12 @@ PART 1 - BASICS
 ~~~~~~~~~~~~~~~
 
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
-| 1  | *Start-up*                        | `Python <welcomesourcecode_>`_  / `IPython <ipythonwelcome_>`_                                |
+| 1  | *Start-up*                        | `Python <welcomesourcecode_>`_     / `IPython <ipythonwelcome_>`_                             |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+| 1  | *Basic Operations*                | `Python <basicoperationpython_>`_  / `IPython <ipythonbasicoperation_>`_                      |
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+
+
 
 
 .. ~~~~~~~~~~~~
@@ -53,6 +57,9 @@ PART 1 - BASICS
 
 .. _welcomesourcecode: /codes/p01-basics/0-welcome/welcome.py
 .. _ipythonwelcome: codes/p01-basics/0-welcome/welcome.ipynb
+
+.. _basicoperationpython: codes/p01-basics/1-basicoperations/basicoperations.py
+.. _ipythonbasicoperation: codes/p01-basics/1-basicoperations/basicoperations.ipynb
 
 
 

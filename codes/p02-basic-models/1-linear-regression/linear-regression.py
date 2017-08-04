@@ -100,7 +100,7 @@ test_labels = predictions[args.num_samples_to_train:args.num_samples, :]
 train_features = features[0:args.num_samples_to_train, :]
 train_labels = predictions[0:args.num_samples_to_train, :]
 
-# Print out our weight and bias
+# Print out weight and bias
 print("Trained parameters are: w= {0:.2f}, b={1:.2f}".format(pred.W.value[0][0], pred.b.value[0]))
 
 

@@ -37,13 +37,23 @@ The tutorials in this repository are partitioned into relevant categories.
 
 
 ~~~~~~~~~~~~~~~
-PART 1 - BASICS
+PART 1 - Basics
 ~~~~~~~~~~~~~~~
 
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 | 1  | *Start-up*                        | `Python <welcomesourcecode_>`_     / `IPython <ipythonwelcome_>`_                             |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 | 2  | *Basic Operations*                | `Python <basicoperationpython_>`_  / `IPython <ipythonbasicoperation_>`_                      |
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+
+~~~~~~~~~~~~~~~~~~~~~
+PART 2 - Basic Models
+~~~~~~~~~~~~~~~~~~~~~
+
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+| 1  | *Linear Regression*               | `Python <linearregressionpython_>`_     / `IPython <ipythonlinearregressio_>`_                |
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+| 2  | *Logistic Regression*             | `Python <basicoperationpython_>`_       / `IPython <ipythonbasicoperation_>`_                 |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 
 
@@ -60,6 +70,14 @@ PART 1 - BASICS
 
 .. _basicoperationpython: codes/p01-basics/1-basicoperations/basicoperations.py
 .. _ipythonbasicoperation: codes/p01-basics/1-basicoperations/basicoperations.ipynb
+
+.. ~~~~~~~~~~~~
+.. **Basic Models**
+.. ~~~~~~~~~~~~
+
+.. _linearregressionpython: codes/p02-basic-models/1-linear-regression/linear-regression.py
+.. _ipythonlinearregressio: codes/p02-basic-models/1-linear-regression/linear-regression.ipynb
+
 
 
 

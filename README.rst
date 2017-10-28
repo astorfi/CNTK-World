@@ -56,6 +56,14 @@ PART 2 - Basic Models
 | 2  | *Logistic Regression*             | `Python <basicoperationpython_>`_       / `IPython <ipythonbasicoperation_>`_                 |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 
+~~~~~~~~~~~~~~~~~~~~~~~~~
+PART 2 - Neural Networks
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+| 1  | *Multi Layer Perceptron*          | `Python <MLPpython_>`_                              / `IPython <ipythonMLP_>`_                |
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+
 
 
 
@@ -77,6 +85,13 @@ PART 2 - Basic Models
 
 .. _linearregressionpython: codes/p02-basic-models/1-linear-regression/linear-regression.py
 .. _ipythonlinearregressio: codes/p02-basic-models/1-linear-regression/linear-regression.ipynb
+
+.. ~~~~~~~~~~~~
+.. **Neural**
+.. ~~~~~~~~~~~~
+
+.. _MLPpython: codes/p03-neural-networks/1-multilayer-perceptron/multilayer-perceptron.py
+.. _ipythonMLP: codes/p03-neural-networks/1-multilayer-perceptron/multilayer-perceptron.ipynb
 
 
 

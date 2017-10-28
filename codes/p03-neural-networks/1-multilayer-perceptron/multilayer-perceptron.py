@@ -54,17 +54,27 @@ class Batch_Reader(object):
 # Load the data.
 mnist = fetch_mldata('MNIST original', data_home=os.path.dirname(os.path.abspath(__file__)))
 
-# Create train data.
+# Create train & test data.
 train_data = mnist.data[:args.num_training_samples,:]
 train_label = mnist.target[:args.num_training_samples]
+test_data = mnist.data[args.num_training_samples:,:]
+test_label = mnist.target[args.num_training_samples:]
 
-# Transform labels to one-hot style.
+# Transform train labels to one-hot style.
 enc = OneHotEncoder()
 enc.fit(train_label[:,None])
-onehotlabels = enc.transform(train_label[:,None]).toarray()
+onehotlabels_train = enc.transform(train_label[:,None]).toarray()
 
 # Call and create the ``train_reader`` object.
-train_reader = Batch_Reader(train_data, onehotlabels)
+train_reader = Batch_Reader(train_data, onehotlabels_train)
+
+# Transform test labels to one-hot style.
+enc = OneHotEncoder()
+enc.fit(test_label[:,None])
+onehotlabels_test = enc.transform(test_label[:,None]).toarray()
+
+# Call and create the ``test_reader`` object.
+test_reader = Batch_Reader(test_data, onehotlabels_test)
 
 ##############################
 ########## Network ###########
@@ -113,13 +123,18 @@ learner = C.sgd(net_out.parameters, learning_rate_schedule)
 train_op = C.Trainer(net_out, (loss, label_error), [learner])
 
 
+###############################
+########## Training ###########
+###############################
 
-plotdata = {"loss":[], "error":[]}
+# Plot data dictionary.
+plotdata = {"iteration":[], "loss":[], "error":[]}
 
 # Initialize the parameters for the trainer
 num_iterations = (args.num_training_samples * args.num_epochs) / args.batch_size
 
-for i in range(0, int(num_iterations)):
+# Training loop.
+for iter in range(0, int(num_iterations)):
 
     # Read a mini batch from the training data file
     batch_data, batch_label = train_reader.next_batch(batch_size=args.batch_size)
@@ -127,21 +142,38 @@ for i in range(0, int(num_iterations)):
     arguments = {input: batch_data, label: batch_label}
     train_op.train_minibatch(arguments=arguments)
 
-    if i % args.train_log_iter == 0:
+    if iter % args.train_log_iter == 0:
 
         training_loss = False
         evalaluation_error = False
         training_loss = train_op.previous_minibatch_loss_average
         evalaluation_error = train_op.previous_minibatch_evaluation_average
-        print("Minibatch: {0}, Loss: {1:.3f}, Error: {2:.2f}%".format(i, training_loss, evalaluation_error * 100))
+        print("Minibatch: {0}, Loss: {1:.3f}, Error: {2:.2f}%".format(iter, training_loss, evalaluation_error * 100))
 
         if training_loss or evalaluation_error:
             plotdata["loss"].append(training_loss)
             plotdata["error"].append(evalaluation_error)
+            plotdata["iteration"].append(iter)
 
 
-sys.exit()
+# Plot the training loss and the training error
+import matplotlib.pyplot as plt
 
+plt.figure(1)
+plt.subplot(211)
+plt.plot(plotdata["iteration"], plotdata["loss"], 'b--')
+plt.xlabel('Minibatch number')
+plt.ylabel('Loss')
+plt.title('iteration run vs. Training loss')
+
+plt.show()
+
+plt.subplot(212)
+plt.plot(plotdata["iteration"], plotdata["error"], 'r--')
+plt.xlabel('Minibatch number')
+plt.ylabel('Label Prediction Error')
+plt.title('iteration run vs. Label Prediction Error')
+plt.show()
 
 
 

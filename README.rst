@@ -51,9 +51,9 @@ PART 2 - Basic Models
 ~~~~~~~~~~~~~~~~~~~~~
 
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
-| 1  | *Linear Regression*               | `Python <linearregressionpython_>`_     / `IPython <ipythonlinearregressio_>`_                |
+| 1  | *Linear Regression*               | `Python <linearregressionpython_>`_     / `IPython <ipythonlinearregression_>`_               |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
-| 2  | *Logistic Regression*             | `Python <basicoperationpython_>`_       / `IPython <ipythonbasicoperation_>`_                 |
+| 2  | *Logistic Regression*             | `Python <logisticregressionpython_>`_   / `IPython <ipythonlogisticregression_>`_             |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,18 +73,20 @@ PART 2 - Neural Networks
 
 .. The tutorial in this section is just a simple entrance to TensorFlow world.
 
-.. _welcomesourcecode: /codes/p01-basics/0-welcome/welcome.py
-.. _ipythonwelcome: codes/p01-basics/0-welcome/welcome.ipynb
+.. _welcomesourcecode: codes/p01-warmup/0-welcome/welcome.py
+.. _ipythonwelcome: codes/p01-warmup/0-welcome/welcome.ipynb
 
-.. _basicoperationpython: codes/p01-basics/1-basicoperations/basicoperations.py
-.. _ipythonbasicoperation: codes/p01-basics/1-basicoperations/basicoperations.ipynb
+.. _basicoperationpython: codes/p01-warmup/1-basicoperations/basicoperations.py
+.. _ipythonbasicoperation: codes/p01-warmup/1-basicoperations/basicoperations.ipynb
 
 .. ~~~~~~~~~~~~
 .. **Basic Models**
 .. ~~~~~~~~~~~~
 
 .. _linearregressionpython: codes/p02-basic-models/1-linear-regression/linear-regression.py
-.. _ipythonlinearregressio: codes/p02-basic-models/1-linear-regression/linear-regression.ipynb
+.. _ipythonlinearregression: codes/p02-basic-models/1-linear-regression/linear-regression.ipynb
+
+.. _logisticregressionpython: codes/p02-basic-models/2-logistic-regression/logistic-regression.py
 
 .. ~~~~~~~~~~~~
 .. **Neural**

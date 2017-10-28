@@ -15,20 +15,11 @@ import argparse
 ### parameter ###
 #################
 
-# Define the parser
-parser = argparse.ArgumentParser()
-parser.add_argument('-num_t', '--num_training_samples', type=int,
-                    default=60000, help='number of training samples')
-parser.add_argument('-bs', '--batch_size', type=int,
-                    default=64, help='number of mini-batch size')
-parser.add_argument('-ne', '--num_epochs', type=int,
-                    default=10, help='number of epochs')
-parser.add_argument('-lr', '--initial_learning_rate', type=float,
-                    default=0.1, help='initial learning rate')
-parser.add_argument('-trl', '--train_log_iter', type=int,
-                    default=500, help='Number of iteration per training log')
-
-args = parser.parse_args()
+num_training_samples = 60000 # Number of training samples
+batch_size = 64 # Number of mini-batch size
+num_epochs = 10 # Number of epochs of data for training
+initial_learning_rate = 0.1 # Initial learning rate
+train_log_iter = 500 # Number of iteration per training log
 
 ########################
 ### Required Objects ###
@@ -54,10 +45,10 @@ class Batch_Reader(object):
 mnist = fetch_mldata('MNIST original', data_home=os.path.dirname(os.path.abspath(__file__)))
 
 # Create train & test data.
-train_data = mnist.data[:args.num_training_samples,:]
-train_label = mnist.target[:args.num_training_samples]
-test_data = mnist.data[args.num_training_samples:,:]
-test_label = mnist.target[args.num_training_samples:]
+train_data = mnist.data[:num_training_samples,:]
+train_label = mnist.target[:num_training_samples]
+test_data = mnist.data[num_training_samples:,:]
+test_label = mnist.target[num_training_samples:]
 
 # Transform train labels to one-hot style.
 enc = OneHotEncoder()
@@ -117,7 +108,7 @@ loss = C.cross_entropy_with_softmax(net_out, label)
 label_error = C.classification_error(net_out, label)
 
 # Setup the trainer operator as train_op.
-learning_rate_schedule = C.learning_rate_schedule(args.initial_learning_rate, C.UnitType.minibatch)
+learning_rate_schedule = C.learning_rate_schedule(initial_learning_rate, C.UnitType.minibatch)
 learner = C.sgd(net_out.parameters, learning_rate_schedule)
 train_op = C.Trainer(net_out, (loss, label_error), [learner])
 
@@ -130,18 +121,18 @@ train_op = C.Trainer(net_out, (loss, label_error), [learner])
 plotdata = {"iteration":[], "loss":[], "error":[]}
 
 # Initialize the parameters for the trainer
-num_iterations = (args.num_training_samples * args.num_epochs) / args.batch_size
+num_iterations = (num_training_samples * num_epochs) / batch_size
 
 # Training loop.
 for iter in range(0, int(num_iterations)):
 
     # Read a mini batch from the training data file
-    batch_data, batch_label = train_reader.next_batch(batch_size=args.batch_size)
+    batch_data, batch_label = train_reader.next_batch(batch_size=batch_size)
 
     arguments = {input: batch_data, label: batch_label}
     train_op.train_minibatch(arguments=arguments)
 
-    if iter % args.train_log_iter == 0:
+    if iter % train_log_iter == 0:
 
         training_loss = False
         evalaluation_error = False

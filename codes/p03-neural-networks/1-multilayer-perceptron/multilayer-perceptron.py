@@ -11,7 +11,6 @@ import cntk.tests.test_utils
 from sklearn.preprocessing import OneHotEncoder
 import argparse
 
-
 #################
 ### parameter ###
 #################
@@ -155,25 +154,51 @@ for iter in range(0, int(num_iterations)):
             plotdata["error"].append(evalaluation_error)
             plotdata["iteration"].append(iter)
 
+###########################
+########## Plot ###########
+###########################
 
-# Plot the training loss and the training error
-import matplotlib.pyplot as plt
-
-plt.figure(1)
-plt.subplot(211)
+plt.figure()
 plt.plot(plotdata["iteration"], plotdata["loss"], 'b--')
 plt.xlabel('Minibatch number')
 plt.ylabel('Loss')
 plt.title('iteration run vs. Training loss')
-
 plt.show()
 
-plt.subplot(212)
 plt.plot(plotdata["iteration"], plotdata["error"], 'r--')
 plt.xlabel('Minibatch number')
 plt.ylabel('Label Prediction Error')
 plt.title('iteration run vs. Label Prediction Error')
 plt.show()
+
+
+###########################
+########## Test ###########
+###########################
+
+# Test data.
+test_minibatch_size = 256
+num_samples = 10000
+num_batches_to_test = num_samples // test_minibatch_size
+test_error = 0.0
+
+for i in range(num_batches_to_test):
+
+    # Read a mini batch from the test data file
+    batch_data, batch_label = test_reader.next_batch(batch_size=test_minibatch_size)
+
+    # Evaluate
+    arguments = {input: batch_data, label: batch_label}
+    eval_error = train_op.test_minibatch(arguments=arguments)
+
+    # accumulate test error
+    test_error = test_error + eval_error
+
+# Calculation of average test error.
+average_test_error = test_error*100 / num_batches_to_test
+
+# Average of evaluation errors of all test minibatches
+print("Average test error: {0:.2f}%".format(average_test_error))
 
 
 

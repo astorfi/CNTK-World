@@ -34,7 +34,7 @@ class Batch_Reader(object):
 
     def next_batch(self, batch_size):
         index = random.sample(range(self.num_sample), batch_size)
-        return self.data[index,:].astype(float),self.label[index,:].astype(float)
+        return self.data[index,:].astype(np.float32),self.label[index,:].astype(np.float32)
 
 
 ######################

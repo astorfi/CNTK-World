@@ -19,12 +19,14 @@ This repository is aimed to provide simple and ready-to-use tutorials for Keras.
 Motivation
 ============
 
-There are different motivations for this open source project.Keras is ..
-
 ~~~~~~~~~~~~~~~~~
 Why using CNTK?
 ~~~~~~~~~~~~~~~~~
+Deep Learning is of great interest these days - there's a need for rapid and optimized implementations
+of the algorithms and deep architectures. `Microsoft Cognitive Toolkit (CNTK)`_ is designed to provide a free
+and fast-and-easy platform for facillating the deep learning architecture design and implementation.
 
+.. _Microsoft Cognitive Toolkit (CNTK): https://docs.microsoft.com/en-us/cognitive-toolkit/reasons-to-switch-from-tensorflow-to-cntk
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 What's the point of this repository?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

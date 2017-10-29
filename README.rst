@@ -36,6 +36,14 @@ CNTK Tutorials
 The tutorials in this repository are partitioned into relevant categories.
 
 
+~~~~~~~~~~~~~~~~~~~~~
+PART 0 - Installation
+~~~~~~~~~~~~~~~~~~~~~
+
++--------------------------------------+-------------------------------------------------+
+| *Installation*                       | `CNTK Installation`_                            |
++--------------------------------------+-------------------------------------------------+
+
 ~~~~~~~~~~~~~~~
 PART 1 - Basics
 ~~~~~~~~~~~~~~~

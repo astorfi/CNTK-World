@@ -1,9 +1,0 @@
-numpy
-scipy
-https://cntk.ai/PythonWheel/CPU-Only/cntk-2.2-cp35-cp35m-linux_x86_64.whl
-python-coveralls
-matplotlib
-xlrd
-scikit-learn
-pandas
-scikit-image

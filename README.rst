@@ -48,6 +48,8 @@ with *data-reader* objects and preprocessing phases. So there is a need for an o
 
 We hope that those aforementioned lines would be satisfied in this project.
 
+.. _Tutorials Series: https://cntk.ai/pythondocs/tutorials.html
+
 
 ================
 CNTK Tutorials

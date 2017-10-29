@@ -89,6 +89,7 @@ PART 2 - Neural Networks
 .. _ipythonlinearregression: codes/p02-basic-models/1-linear-regression/linear-regression.ipynb
 
 .. _logisticregressionpython: codes/p02-basic-models/2-logistic-regression/logistic-regression.py
+.. _ipythonlogisticregression: codes/p02-basic-models/2-logistic-regression/logistic-regression.ipynb
 
 .. ~~~~~~~~~~~~
 .. **Neural**

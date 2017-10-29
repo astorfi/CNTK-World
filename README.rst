@@ -63,6 +63,8 @@ PART 2 - Neural Networks
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 | 1  | *Multi Layer Perceptron*          | `Python <MLPpython_>`_                              / `IPython <ipythonMLP_>`_                |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+| 2  | *Convolutional Neural Networks*   | `Python <CNNpython_>`_                              / `IPython <ipythonCNN_>`_                |
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 
 
 
@@ -94,6 +96,9 @@ PART 2 - Neural Networks
 
 .. _MLPpython: codes/p03-neural-networks/1-multilayer-perceptron/multilayer-perceptron.py
 .. _ipythonMLP: codes/p03-neural-networks/1-multilayer-perceptron/multilayer-perceptron.ipynb
+
+.. _CNNpython: codes/p03-neural-networks/2-convolutional-neural-networks/convolutional-nn.py
+.. _ipythonCNN: codes/p03-neural-networks/2-convolutional-neural-networks/convolutional-nn.ipynb
 
 
 

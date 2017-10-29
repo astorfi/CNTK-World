@@ -40,11 +40,11 @@ The Microsoft itself, provided a nice comprehensive `Tutorials Series`_ on what 
 and implement deep architecture. However, sometimes its tutorials may becaome too verbose and complicated especially
 with *data-reader* objects and preprocessing phases. So there is a need for an open-source project to satisfy the followings:
 
-1 - Covers the basic models.
-2 - Be as simple as possible but not simpler that what is required!
-3 - Be actively under developed by the people of GitHub and not only the people on Microsoft!
-4 - Examples must be run with one push of button and not more!
-5 - And etc, which needs to be added by people who are following this project!
+  1. Covers the basic models.
+  2. Be as simple as possible but not simpler that what is required!
+  3. Be actively under developed by the people of GitHub and not only the people on Microsoft!
+  4. Examples must be run with one push of button and not more!
+  5. And etc, which needs to be added by people who are following this project!
 
 We hope that, those aformentioned lines would be satisfied in this project.
 

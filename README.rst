@@ -25,7 +25,7 @@ Why using CNTK?
 Deep Learning is of great interest these days - there's a need for rapid and optimized implementations
 of the algorithms and deep architectures. `Microsoft Cognitive Toolkit (CNTK)`_ is designed to provide a free
 and fast-and-easy platform for facillating the deep learning architecture design and implementation.
-CNTK demonstrated to be superior compared to the famous TensorFlow in performance (Benchmarking State-of-the-Art Deep Learning Software Tools: `report`_, `paper`_).
+CNTK demonstrated to be superior compared to the famous TensorFlow in performance (**Benchmarking State-of-the-Art Deep Learning Software Tools**: `report`_, `paper`_).
 
 .. Benchmarking State-of-the-Art Deep Learning Software Tools
 .. _report: http://dlbench.comp.hkbu.edu.hk/
@@ -34,6 +34,19 @@ CNTK demonstrated to be superior compared to the famous TensorFlow in performanc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 What's the point of this repository?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``CNTK`` is new and it's hard to find easy-to-use code examples and tutorials for *learning by doing*!
+The Microsoft itself, provided a nice comprehensive `Tutorials Series`_ on what is CNTK and how to design
+and implement deep architecture. However, sometimes its tutorials may becaome too verbose and complicated especially
+with *data-reader* objects and preprocessing phases. So there is a need for an open-source project to satisfy the followings:
+
+1 - Covers the basic models.
+2 - Be as simple as possible but not simpler that what is required!
+3 - Be actively under developed by the people of GitHub and not only the people on Microsoft!
+4 - Examples must be run with one push of button and not more!
+5 - And etc, which needs to be added by people who are following this project!
+
+We hope that, those aformentioned lines would be satisfied in this project.
 
 
 ================

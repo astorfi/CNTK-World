@@ -65,6 +65,8 @@ PART 3 - Neural Networks
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 | 2  | *Convolutional Neural Networks*   | `Python <CNNpython_>`_                              / `IPython <ipythonCNN_>`_                |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+| 3  | *Autoencoders (undercomplete)*    | `Python <AEUpython_>`_                              / `IPython <ipythonAEU_>`_                |
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 
 
 
@@ -100,6 +102,9 @@ PART 3 - Neural Networks
 
 .. _CNNpython: codes/p03-neural-networks/2-convolutional-neural-networks/convolutional-nn.py
 .. _ipythonCNN: codes/p03-neural-networks/2-convolutional-neural-networks/convolutional-nn.ipynb
+
+.. _AEUpython: codes/p03-neural-networks/3-autoencoders/autoencoders.py
+.. _ipythonAEU: codes/p03-neural-networks/3-autoencoders/autoencoders.ipynb
 
 
 

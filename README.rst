@@ -68,6 +68,14 @@ The tutorials in this repository are partitioned into relevant categories.
 PART 0 - Installation
 ~~~~~~~~~~~~~~~~~~~~~
 
+.. image:: _img/mainpage/install.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+
+
 +--------------------------------------+-------------------------------------------------+
 | *Installation*                       | `CNTK Installation`_                            |
 +--------------------------------------+-------------------------------------------------+

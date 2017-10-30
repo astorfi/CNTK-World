@@ -74,6 +74,7 @@ PART 0 - Installation
    :scale: 50 %
    :alt: alternate text
    :align: right
+   :target: https://github.com/astorfi/CNTK-World/tree/master/docs/tutorials/installation
 
 
 +--------------------------------------+-------------------------------------------------+

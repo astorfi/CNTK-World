@@ -15,7 +15,7 @@ It enriches the CNTK with a better system compatibility and it will run much fas
 Manual installation is available at `Setup CNTK on your machine`_ link.
 The official CNTK explanations are concise and to the point. However. few things might become important as we go through the installation. We try to project the step by step process to avoid any confusion. The following sections must be considered in the written order.
 
-The assumption is that installing ``CNTK 2.0`` in the ``Ubuntu`` using ``GPU support`` is desired. ``Python2.7`` is chosen for installation.
+The assumption is that installing ``CNTK 2.0`` in the ``Ubuntu 14.04`` using ``GPU support`` is desired. ``Python2.7`` is chosen for installation. It has not been tested on ``Ubuntu 16.04`` but it should works as is.
 
 .. **NOTE** Please refer to this youtube `link <youtube_>`_ for a visual explanation.
 

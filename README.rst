@@ -143,34 +143,34 @@ PART 3 - Neural Networks
 
 .. The tutorial in this section is just a simple entrance to TensorFlow world.
 
-.. _welcomesourcecode: codes/p01-warmup/0-welcome/welcome.py
-.. _ipythonwelcome: codes/p01-warmup/0-welcome/welcome.ipynb
+.. _welcomesourcecode: codes/Python/p01-warmup/0-welcome/welcome.py
+.. _ipythonwelcome: codes/IPython/p01-warmup/0-welcome/welcome.ipynb
 
-.. _basicoperationpython: codes/p01-warmup/1-basicoperations/basicoperations.py
-.. _ipythonbasicoperation: codes/p01-warmup/1-basicoperations/basicoperations.ipynb
+.. _basicoperationpython: codes/Python/p01-warmup/1-basicoperations/basicoperations.py
+.. _ipythonbasicoperation: codes/IPython/p01-warmup/1-basicoperations/basicoperations.ipynb
 
 .. ~~~~~~~~~~~~
 .. **Basic Models**
 .. ~~~~~~~~~~~~
 
-.. _linearregressionpython: codes/p02-basic-models/1-linear-regression/linear-regression.py
-.. _ipythonlinearregression: codes/p02-basic-models/1-linear-regression/linear-regression.ipynb
+.. _linearregressionpython: codes/Python/p02-basic-models/1-linear-regression/linear-regression.py
+.. _ipythonlinearregression: codes/IPython/p02-basic-models/1-linear-regression/linear-regression.ipynb
 
-.. _logisticregressionpython: codes/p02-basic-models/2-logistic-regression/logistic-regression.py
-.. _ipythonlogisticregression: codes/p02-basic-models/2-logistic-regression/logistic-regression.ipynb
+.. _logisticregressionpython: codes/Python/p02-basic-models/2-logistic-regression/logistic-regression.py
+.. _ipythonlogisticregression: codes/IPython/p02-basic-models/2-logistic-regression/logistic-regression.ipynb
 
 .. ~~~~~~~~~~~~
 .. **Neural**
 .. ~~~~~~~~~~~~
 
-.. _MLPpython: codes/p03-neural-networks/1-multilayer-perceptron/multilayer-perceptron.py
-.. _ipythonMLP: codes/p03-neural-networks/1-multilayer-perceptron/multilayer-perceptron.ipynb
+.. _MLPpython: codes/Python/p03-neural-networks/1-multilayer-perceptron/multilayer-perceptron.py
+.. _ipythonMLP: codes/IPython/p03-neural-networks/1-multilayer-perceptron/multilayer-perceptron.ipynb
 
-.. _CNNpython: codes/p03-neural-networks/2-convolutional-neural-networks/convolutional-nn.py
-.. _ipythonCNN: codes/p03-neural-networks/2-convolutional-neural-networks/convolutional-nn.ipynb
+.. _CNNpython: codes/Python/p03-neural-networks/2-convolutional-neural-networks/convolutional-nn.py
+.. _ipythonCNN: codes/IPython/p03-neural-networks/2-convolutional-neural-networks/convolutional-nn.ipynb
 
-.. _AEUpython: codes/p03-neural-networks/3-autoencoders/autoencoders.py
-.. _ipythonAEU: codes/p03-neural-networks/3-autoencoders/autoencoders.ipynb
+.. _AEUpython: codes/Python/p03-neural-networks/3-autoencoders/autoencoders.py
+.. _ipythonAEU: codes/IPython/p03-neural-networks/3-autoencoders/autoencoders.ipynb
 
 
 

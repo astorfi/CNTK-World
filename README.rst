@@ -68,7 +68,7 @@ The tutorials in this repository are partitioned into relevant categories.
 PART 0 - Installation
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: _img/mainpage/installation.jpg
+.. image:: _img/mainpage/installation.gif
    :height: 100px
    :width: 200 px
    :scale: 50 %

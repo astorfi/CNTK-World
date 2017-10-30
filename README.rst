@@ -8,7 +8,7 @@ CNTK World
     :target: https://github.com/ellerbrock/open-source-badge/
 
 
-This repository is aimed to provide simple and ready-to-use tutorials for Keras. Each tutorial has a ``source code``.
+This repository is aimed to provide simple and ready-to-use tutorials for CNTK. Each tutorial has a ``source code``.
 
 .. image:: _img/mainpage/CNTK-World.gif
 

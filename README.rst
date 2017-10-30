@@ -86,6 +86,13 @@ PART 1 - Basics
 PART 2 - Basic Models
 ~~~~~~~~~~~~~~~~~~~~~
 
+.. image:: _img/mainpage/logisticregression.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 | 1  | *Linear Regression*               | `Python <linearregressionpython_>`_     / `IPython <ipythonlinearregression_>`_               |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+

@@ -1,6 +1,6 @@
 
 docs/* linguist-documentation
 _img/* linguist-vendored
-codes/IPython/ linguist-vendored
-codes/IPython/ linguist-documentation
+codes/IPython/* linguist-vendored
+codes/IPython/* linguist-documentation
 

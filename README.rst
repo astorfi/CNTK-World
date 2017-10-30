@@ -15,6 +15,13 @@ This repository is aimed to provide simple and ready-to-use tutorials for CNTK. 
 .. The links.
 .. .. _wiki: https://github.com/astorfi/TensorFlow-World/wiki
 
+#################
+Table of Contents
+#################
+.. contents::
+  :local:
+  :depth: 4
+
 ============
 Motivation
 ============

@@ -165,9 +165,9 @@ conflict and having the capacity to customize the working environment. Among dif
 methods of creating and utilizing virtual environments, working with ``conda`` is
 recommended.
 
-=====================
-Some Useful Tutorials
-=====================
+.. =====================
+.. Some Useful Tutorials
+.. =====================
 
   .. * `TensorFlow Examples <https://github.com/aymericdamien/TensorFlow-Examples>`_ - TensorFlow tutorials and code examples for beginners
   .. * `Sungjoon's TensorFlow-101 <https://github.com/sjchoi86/Tensorflow-101>`_ - TensorFlow tutorials written in Python with Jupyter Notebook

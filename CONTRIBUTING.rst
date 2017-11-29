@@ -4,7 +4,7 @@ Contributing
 *************
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. *For typos, please 
+email (amirsina.torfi@gmail.com), or any other method with the owners of this repository before making a change. *For typos, please 
 do not create a pull request. Instead, declare them in issues or email the repository owner*.
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.

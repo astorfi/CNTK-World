@@ -105,3 +105,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# editted files using gedit
+*~

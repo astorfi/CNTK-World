@@ -181,6 +181,8 @@ PART 3 - Neural Networks
 .. _AEUpython: codes/Python/p03-neural-networks/3-autoencoders/autoencoders.py
 .. _ipythonAEU: codes/IPython/p03-neural-networks/3-autoencoders/autoencoders.ipynb
 
+.. _CGANpython_: codes/Python/p03-neural-networks/4-conditional-DCGAN/conditional-DCGAN.py
+.. _ipythonCGAN_: codes/IPython/p03-neural-networks/4-conditional-DCGAN/conditional-DCGAN.ipynb
 
 
 

@@ -35,7 +35,17 @@ real_code = enc.transform(mnist.target[:, None])
 # some helper functions
 def G_sampler(G_model, batch_size, normal=True):
     '''
-    get samples from G network
+    get samples from Generator network
+
+    Args:
+        G_model: Generative model which produces samples
+        batch_size: number of images sampled from G_model
+        normal: whether use normal distribution or unofrom as random state
+
+    Returns:
+        z: random state used as Generator input
+        fake_images: images sampled from Generator
+        digit_code: conditional code which is fed to Generator
     '''
     digit_code = enc.transform(np.random.randint(0, num_class, batch_size)[:, None])
     if normal:
@@ -54,7 +64,12 @@ def G_sampler(G_model, batch_size, normal=True):
 
 def visualize(epoch, batch_size=256, save_model=False):
     '''
-    get samples from G network and save it to samples dir
+    get samples from G network and save it to samples directory (exception will be occurred if samples directory not exists)
+
+    Args:
+        epoch: epoch number which we are currently at
+        batch_size: number of images sampled from G
+        save_model: whether save G and D model or not
     '''
     global G_net, D_real, G_tensorboard_writer
 
@@ -76,6 +91,15 @@ def visualize(epoch, batch_size=256, save_model=False):
 
 
 def create_mb_for_D(mb_size):
+    '''
+    data generator to train Detector network
+
+    Args:
+        mb_size: number of samples of minibatch
+
+    Returns:
+        real_image, real_code, z (random state) and fake_code all have the same size determined by mb_size
+    '''
     global real_img, real_code
 
     counter = 0
@@ -97,6 +121,15 @@ def create_mb_for_D(mb_size):
 
 
 def create_mb_for_G(mb_size):
+    '''
+    data generator to train Generator network
+
+    Args:
+        mb_size: number of samples of minibatch
+
+    Returns:
+        random state and conditional code with the same size of mb_size
+    '''
     while True:
         # create fake samples
         z, _, code = G_sampler(G_net, mb_size)
@@ -105,6 +138,13 @@ def create_mb_for_G(mb_size):
 
 # define D and G networks
 def D(x_img, x_code):
+    '''
+    Detector network architecture
+
+    Args:
+        x_img: cntk.input_variable represent images to network
+        x_code: cntk.input_variable represent conditional code to network
+    '''
     def bn_with_leaky_relu(x, leak=0.2):
         h = C.layers.BatchNormalization(map_rank=1)(x)
         r = C.param_relu(C.constant((np.ones(h.shape) * leak).astype(np.float32)), h)
@@ -135,6 +175,13 @@ def D(x_img, x_code):
 
 
 def G(z, code):
+    '''
+    Generator network architecture
+
+    Args:
+        z: random state
+        code: conditional code which the fake images will be generated wrt it
+    '''
     def bn_with_relu(x, activation=C.relu, name='BN'):
         h = C.layers.BatchNormalization(map_rank=1, name=name)(x)
         return C.relu(h, name=name + '_relu')
@@ -259,7 +306,7 @@ for epoch in range(max_epoch):
         #G_progress_printer.update_with_trainer(G_trainer)
         #G_progress_printer.epoch_summary()
 
-    if epoch % 100 == 0:
+    if epoch % 100 == 99:
         visualize(epoch)
 print('training conditional DCGAN takes {}(secs) long'.format(time.time() - t0))
 
@@ -270,6 +317,13 @@ fake_images = G_net.eval({G_feature_z: sample_z, G_feature_code: sample_codes}, 
 
 
 def plot_images(images, subplot_shape):
+    '''
+    depict images in a single plot
+
+    Args:
+        images: np.array of images
+        subplot_shape: layout of subplot
+    '''
     plt.style.use('ggplot')
     fig, axes = plt.subplots(*subplot_shape)
     for image, ax in zip(images, axes.flatten()):

@@ -74,6 +74,8 @@ def visualize(epoch, batch_size=256, save_model=False):
     global G_net, D_real, G_tensorboard_writer
 
     # check if folder exist
+    if not os.path.isdir('samples'):
+        os.mkdir('samples')
     p = 'samples/epoch{:05d}'.format(epoch)
     if os.path.isdir(p):
         shutil.rmtree(p)

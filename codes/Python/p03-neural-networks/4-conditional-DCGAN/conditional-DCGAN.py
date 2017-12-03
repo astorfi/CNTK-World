@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+'''
+Generative Adversarial Network (GAN))
+base paper: https://arxiv.org/pdf/1406.2661v1.pdf
+
+This code is similar to (CNTK DCGAN tutorial)[https://github.com/Microsoft/CNTK/blob/master/Tutorials/CNTK_206B_DCGAN.ipynb]
+except that here a conditional input, dictates the generator what to generate.
+More descriptive blog post about GANs: https://blog.openai.com/generative-models
+'''
 import os
 import time
 import numpy as np
@@ -53,7 +61,6 @@ def G_sampler(G_model, batch_size, normal=True):
         z = np.random.normal(mu, sigma, (batch_size, g_input_dim_noise))
     else:
         z = 2.0 * np.random.random((batch_size, g_input_dim_noise)) - 1.0
-    #z[:, :10] = digit_code
 
     fake_images = G_model.eval({G_model.find_by_name('G_feature_z'): z,
                                 G_model.find_by_name('G_feature_code'): digit_code},
@@ -108,7 +115,6 @@ def create_mb_for_D(mb_size):
     while True:
         # create fake batch
         z, fake_img, fake_code = G_sampler(G_net, mb_size)
-        #yield fake_img, fake_code
 
         # create real batch
         if counter + mb_size < train_set_len:
@@ -133,7 +139,6 @@ def create_mb_for_G(mb_size):
         random state and conditional code with the same size of mb_size
     '''
     while True:
-        # create fake samples
         z, _, code = G_sampler(G_net, mb_size)
         yield z, code
 
@@ -225,7 +230,6 @@ def G(z, code):
                                   output_shape=(s_h2, s_w2),
                                   activation=None,
                                   name='transposed_conv2')(h3)
-        #h4 = bn_with_relu(h4, name='BN3')
         print('h4 shape', h4.shape)
 
         h5 = C.layers.ConvolutionTranspose2D(gkernel,
@@ -244,9 +248,6 @@ def G(z, code):
         return  h5_w_h
 
 # define computational graph
-###########################
-# define GAN architecture #
-###########################
 # input nudes
 G_feature_z = C.input_variable(g_input_dim_noise, name='G_feature_z')
 G_feature_code = C.input_variable(num_class, name='G_feature_code')
@@ -269,9 +270,9 @@ G_learner = C.adam(parameters=G_net.parameters, lr=lr, momentum=mm)
 D_learner = C.adam(parameters=D_real.parameters, lr=lr, momentum=mm)
 
 # logging
-G_progress_printer = C.logging.ProgressPrinter(tag='G_training', num_epochs=1000)
+G_progress_printer = C.logging.ProgressPrinter(tag='G_training', num_epochs=max_epoch // 100)
 G_tensorboard_writer = C.logging.TensorBoardProgressWriter(freq=10, log_dir='log_G', model=G_net)
-D_progress_printer = C.logging.ProgressPrinter(tag='D_training', num_epochs=1000)
+D_progress_printer = C.logging.ProgressPrinter(tag='D_training', num_epochs=max_epoch // 100)
 D_tensorboard_writer = C.logging.TensorBoardProgressWriter(freq=10, log_dir='log_D', model=D_real)
 
 # trainer
@@ -279,36 +280,29 @@ G_trainer = C.Trainer(G_net, (G_loss, None), G_learner, [G_progress_printer, G_t
 D_trainer = C.Trainer(D_real, (D_loss, None), D_learner, [D_progress_printer, D_tensorboard_writer])
 
 # train conditional DCGAN
-# create loop
 t0 = time.time()
 D_DS = create_mb_for_D(256)
 G_DS = create_mb_for_G(256)
 for epoch in range(max_epoch):
-    #print('\n' * 3 + '-' * 40)
-    #print('GAN epoch: {}/{}'.format(epoch, max_epoch))
-    #print('-' * 40)
-
     # train D for k steps
     k = 2
-    #print('train D for {} steps'.format(k))
     for i in range(k):
         D_mb = next(D_DS)
         input_map = {D_feature_image: D_mb[0], D_feature_code: D_mb[1], G_feature_z: D_mb[2], G_feature_code: D_mb[3]}
         D_trainer.train_minibatch(input_map)
-        #D_progress_printer.update_with_trainer(D_trainer)
-        #D_progress_printer.epoch_summary()
+        D_progress_printer.update_with_trainer(D_trainer)
 
     # train G
-    k = 2
-    #print('train G for {} steps'.format(k))
+    k = 1
     G_mb = next(G_DS)
     input_map = {G_feature_z: G_mb[0], G_feature_code: G_mb[1]}
     for i in range(k):
         G_trainer.train_minibatch(input_map)
-        #G_progress_printer.update_with_trainer(G_trainer)
-        #G_progress_printer.epoch_summary()
+        G_progress_printer.update_with_trainer(G_trainer)
 
     if epoch % 100 == 99:
+        D_progress_printer.epoch_summary()
+        G_progress_printer.epoch_summary()
         visualize(epoch)
 print('training conditional DCGAN takes {}(secs) long'.format(time.time() - t0))
 

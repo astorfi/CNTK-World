@@ -140,7 +140,23 @@ PART 3 - Neural Networks
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 | 3  | *Autoencoders (undercomplete)*    | `Python <AEUpython_>`_                              / `IPython <ipythonAEU_>`_                |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
-| 4  | *Conditional GAN*                 | `Python <CGANpython_>`_                             / `IPython <ipythonCGAN_>`_               |
+
+
+==========================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+PART 4 - Advanced
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: _img/mainpage/CNNs.png
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+| 1  | *Conditional GAN*                 | `Python <CGANpython_>`_                             / `IPython <ipythonCGAN_>`_               |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 
 ==========================
@@ -181,8 +197,13 @@ PART 3 - Neural Networks
 .. _AEUpython: codes/Python/p03-neural-networks/3-autoencoders/autoencoders.py
 .. _ipythonAEU: codes/IPython/p03-neural-networks/3-autoencoders/autoencoders.ipynb
 
-.. _CGANpython: codes/Python/p03-neural-networks/4-conditional-DCGAN/conditional-DCGAN.py
-.. _ipythonCGAN: codes/IPython/p03-neural-networks/4-conditional-DCGAN/conditional-DCGAN.ipynb
+
+.. ~~~~~~~~~~~~
+.. **Advanced**
+.. ~~~~~~~~~~~~
+
+.. _CGANpython: codes/Python/p04-advanced/1-conditional-DCGAN/conditional-DCGAN.py
+.. _ipythonCGAN: codes/IPython/p04-advanced/1-conditional-DCGAN/conditional-DCGAN.ipynb
 
 
 

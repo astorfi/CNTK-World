@@ -140,6 +140,8 @@ PART 3 - Neural Networks
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 | 3  | *Autoencoders (undercomplete)*    | `Python <AEUpython_>`_                              / `IPython <ipythonAEU_>`_                |
 +----+-----------------------------------+-----------------------------------------------------------------------------------------------+
+| 4  | *Conditional GAN*                 | `Python <CGANpython_>`_                             / `IPython <ipythonCGAN_>`_               |
++----+-----------------------------------+-----------------------------------------------------------------------------------------------+
 
 ==========================
 
@@ -179,6 +181,8 @@ PART 3 - Neural Networks
 .. _AEUpython: codes/Python/p03-neural-networks/3-autoencoders/autoencoders.py
 .. _ipythonAEU: codes/IPython/p03-neural-networks/3-autoencoders/autoencoders.ipynb
 
+.. _CGANpython: codes/Python/p03-neural-networks/4-conditional-DCGAN/conditional-DCGAN.py
+.. _ipythonCGAN: codes/IPython/p03-neural-networks/4-conditional-DCGAN/conditional-DCGAN.ipynb
 
 
 

@@ -148,7 +148,7 @@ PART 3 - Neural Networks
 PART 4 - Advanced
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: _img/mainpage/CNNs.png
+.. image:: _img/mainpage/advanced.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
